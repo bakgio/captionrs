@@ -1,0 +1,102 @@
+name: Feature Request
+description: Suggest a new capability or improvement for captionrs
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting an improvement. Describe the workflow or limitation so the request can be evaluated against real subtitle use cases.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Which part of captionrs does this relate to?
+      multiple: true
+      options:
+        - New subtitle format support
+        - Conversion API
+        - Subtitle post-processing
+        - CLI ergonomics
+        - Async API / feature
+        - Encoding / text handling
+        - Documentation
+        - Performance
+        - CI / release process
+        - Packaging / installation
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: subtitle-format
+    attributes:
+      label: Relevant Format
+      description: Which subtitle format or workflow is this request about?
+      multiple: true
+      options:
+        - MP4 TTML / ISMT
+        - MP4 WebVTT / WVTT
+        - WebVTT
+        - SAMI
+        - SMPTE-TT / TTML
+        - Bilibili JSON
+        - SubRip (SRT) processing
+        - Multiple formats
+        - Not format-specific
+        - Other
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or Motivation
+      description: What problem does this feature solve, or what workflow does it unblock?
+      placeholder: "I'm trying to ... but captionrs currently ..."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: importance
+    attributes:
+      label: Importance
+      description: How important is this request to you?
+      options:
+        - Nice to have
+        - Important
+        - Blocking
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: Describe how you think this should work. CLI examples, API sketches, or expected output are useful.
+      render: markdown
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: What alternatives or workarounds have you considered?
+
+  - type: textarea
+    id: sample-context
+    attributes:
+      label: Sample Subtitle, Format, or Workflow Context
+      description: If this depends on a specific input file, subtitle dialect, language behavior, or processing workflow, describe it here.
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Anything else that would help evaluate this request.
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched the existing issues before opening this request
+          required: true

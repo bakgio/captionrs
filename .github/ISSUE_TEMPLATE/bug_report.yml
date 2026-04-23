@@ -1,0 +1,147 @@
+name: Bug Report
+description: Report a bug or unexpected behavior in captionrs
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. Fill out the sections below so the issue can be reproduced without guesswork.
+
+  - type: input
+    id: captionrs-version
+    attributes:
+      label: captionrs Version
+      description: Which version are you using?
+      placeholder: "0.1.0"
+    validations:
+      required: true
+
+  - type: input
+    id: rust-version
+    attributes:
+      label: Rust Version
+      description: Output of `rustc --version`, if applicable.
+      placeholder: "rustc 1.88.0 (6b00bc388 2025-06-23)"
+
+  - type: dropdown
+    id: install-path
+    attributes:
+      label: Installation Method
+      description: How are you running captionrs?
+      options:
+        - cargo install captionrs
+        - cargo install --path .
+        - cargo run from a local checkout
+        - Used as a library dependency
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Affected Surface
+      description: Which part of captionrs is affected?
+      multiple: true
+      options:
+        - Library API
+        - CLI command
+        - Subtitle format detection
+        - Subtitle conversion
+        - Subtitle post-processing
+        - Async feature
+        - Encoding / text handling
+        - Documentation
+        - Packaging / installation
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: subtitle-format
+    attributes:
+      label: Subtitle Format
+      description: Which subtitle format or workflow is involved?
+      multiple: true
+      options:
+        - MP4 TTML / ISMT
+        - MP4 WebVTT / WVTT
+        - WebVTT
+        - SAMI
+        - SMPTE-TT / TTML
+        - Bilibili JSON
+        - SubRip (SRT) processing
+        - Unknown / not sure
+        - Other
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      description: Which platform(s) does this occur on?
+      multiple: true
+      options:
+        - Linux
+        - macOS
+        - Windows
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: command-or-api
+    attributes:
+      label: Command or API
+      description: Which CLI command or library API is involved?
+      placeholder: "captionrs convert input.vtt -o output.srt / captionrs::WebVTTConverter"
+
+  - type: textarea
+    id: happened
+    attributes:
+      label: What Happened?
+      description: Describe the bug. Include error messages, panics, malformed subtitles, or incorrect output.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen instead?
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to Reproduce
+      description: Provide a minimal command sequence, Rust snippet, or clear reproduction steps.
+      placeholder: |
+        cargo run -- convert input.vtt -o output.srt
+
+        or
+
+        use captionrs::{BaseConverter, WebVTTConverter};
+    validations:
+      required: true
+
+  - type: textarea
+    id: sample-input
+    attributes:
+      label: Sample Subtitle or Media Context
+      description: If the issue depends on a specific subtitle file or MP4 sample, describe it here or attach a minimal sample.
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Include stack traces, screenshots, logs, encoding details, or anything else that narrows the issue.
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched the existing issues before opening this report
+          required: true
