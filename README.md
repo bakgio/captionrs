@@ -30,10 +30,10 @@
 
 ```toml
 [dependencies]
-captionrs = "0.1.0"
+captionrs = "0.2.0"
 
 # Enable the Tokio-based async library APIs:
-# captionrs = { version = "0.1.0", features = ["async"] }
+# captionrs = { version = "0.2.0", features = ["async"] }
 ```
 
 Install the CLI with:
